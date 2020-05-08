@@ -38,6 +38,7 @@ public class LoginTests {
 		// open the browser 
 		driver.get(baseUrl);
 	}
+	
 /*
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -56,19 +57,45 @@ public class LoginTests {
 	}
 	
 */	
+
+
+	/**
+	 * TestCase_01	(RETC_001):- To verify whether application allows the user to get registered upon entering valid credentials
+	 * <Creation date="05/05/2020" author="Akash Tyagi">
+	 * NOTE:- Other @Test must be marked (enabled = false), if user wants to execute TestCase_01
+	 */
 	
-	// Test Case 2	:- To Verify whether application allows registered user to login into application
+	@Test(priority=1, enabled=false)
+	public void registerUserTest()  {
+					
+					
+		loginPOM.clickLoginPageLink();
+		loginPOM.clickRegisterTab();
+		loginPOM.sendEmailId("manz04r@gmail.com");
+		loginPOM.sendFirstName("Manz04r");
+		loginPOM.sendLastName("mehad14");
+		screenShot.captureScreenShot("Before_Register");
+		loginPOM.clickRegisterButton();
+		screenShot.captureScreenShot("After_Register");	
+		System.out.println("Response Message after Register button click :- " );
+		System.out.println(loginPOM.ResponseMessage());
+	}
+	
+		
+	/**
+	 * TestCase_02	(RETC_002):- To Verify whether application allows registered user to login into application
+	 * <Creation date="05/05/2020" author="Akash Tyagi">
+	 */
 
 	@Test(priority = 2)
 	public void validLoginTest() {
 		
-		driver.get(baseUrl);		// Needed only if TC1 and TC2 to be executed together.
 		String titleDashboard = "Dashboard ‹ Real Estate — WordPress";
 		loginPOM.clickLoginPageLink();
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+		screenShot.captureScreenShot("Dashboard_Default_Page");
 		String pageTitle = driver.getTitle();
 		
 		if(pageTitle.equalsIgnoreCase(titleDashboard))
@@ -81,36 +108,22 @@ public class LoginTests {
 		}
 	}
 	
-	@Test(priority=3, enabled=true)
+	/**
+	 * TestCase_03	(RETC_019):- To Verify whether application allows admin to delete category from the categories page
+	 * <Creation date="05/05/2020" author="Akash Tyagi">
+	 */
+
+	@Test(priority=3, dependsOnMethods="validLoginTest")
 	public void deleteCategories() throws InterruptedException  {
 		
 		loginPOM.clickPostTab();
 		loginPOM.clickCategoriesLink();
 		loginPOM.checkboxCheck();
+		screenShot.captureScreenShot("Before_Delete_Categories");
 		Thread.sleep(1000);
 		loginPOM.bulkActions();
+		screenShot.captureScreenShot("After_Delete_Categories");
 	}
-
-
-	// Test Case 1	:- To verify whether application allows the user to get registered upon entering valid credentials
-	@Test(priority=1, enabled=false)
-	public void registerUserTest()  {
-				
-				
-		loginPOM.clickLoginPageLink();
-		loginPOM.clickRegisterTab();
-		loginPOM.sendEmailId("manz03r@gmail.com");
-		loginPOM.sendFirstName("Manz03r");
-		loginPOM.sendLastName("mehad12");
-		loginPOM.clickRegisterButton();
-		screenShot.captureScreenShot("Register");
-		
-//		String message = driver.findElement(By.xpath("//div[@class = 'my-account style-1 margin-top-5 margin-bottom-40']//following::p")).getText();
-				
-		System.out.println("Response Message after Register button click :- ");
-		System.out.println(loginPOM.ResponseMessage());
-	}
-	
 
 	
 }
