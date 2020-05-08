@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="1" total="3" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Sample test Suite" duration-ms="35151" started-at="2020-05-08T02:04:55Z" finished-at="2020-05-08T02:05:31Z">
+  <suite name="Sample test Suite" duration-ms="48852" started-at="2020-05-08T03:06:44Z" finished-at="2020-05-08T03:07:33Z">
     <groups>
     </groups>
-    <test name="Sample test" duration-ms="35151" started-at="2020-05-08T02:04:55Z" finished-at="2020-05-08T02:05:31Z">
+    <test name="Sample test" duration-ms="48852" started-at="2020-05-08T03:06:44Z" finished-at="2020-05-08T03:07:33Z">
       <class name="com.training.sanity.tests.LoginTests">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUpBeforeClass" is-config="true" duration-ms="21065" started-at="2020-05-07T19:04:55Z" finished-at="2020-05-07T19:05:16Z">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUpBeforeClass" is-config="true" duration-ms="29418" started-at="2020-05-07T20:06:44Z" finished-at="2020-05-07T20:07:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="validLoginTest()[pri:2, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="validLoginTest" duration-ms="8542" started-at="2020-05-07T19:05:17Z" finished-at="2020-05-07T19:05:25Z">
+        <test-method status="PASS" signature="validLoginTest()[pri:2, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="validLoginTest" duration-ms="12135" started-at="2020-05-07T20:07:14Z" finished-at="2020-05-07T20:07:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validLoginTest -->
-        <test-method status="PASS" signature="deleteCategories()[pri:3, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="deleteCategories" duration-ms="5508" started-at="2020-05-07T19:05:25Z" finished-at="2020-05-07T19:05:31Z">
+        <test-method status="PASS" signature="deleteCategories()[pri:3, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="deleteCategories" duration-ms="7255" started-at="2020-05-07T20:07:26Z" finished-at="2020-05-07T20:07:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteCategories -->

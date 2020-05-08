@@ -66,10 +66,10 @@ public class LoginPOM {
 	
 	private WebElement categorieslink;
 	
-	@FindBy(xpath = ("//table[@class = 'wp-list-table widefat fixed striped tags']/tbody/tr[2]//following::th"))
+	@FindBy(xpath = ("//table[@class = 'wp-list-table widefat fixed striped tags']/tbody/tr[2]//following::input"))
 	private WebElement secondCheckbox;
 	
-	@FindBy(xpath = ("//table[@class = 'wp-list-table widefat fixed striped tags']/tbody/tr[3]//following::th"))
+	@FindBy(xpath = ("//table[@class = 'wp-list-table widefat fixed striped tags']/tbody/tr[3]//following::input"))
 	private WebElement thirdCheckbox;
 	
 	
@@ -82,29 +82,6 @@ public class LoginPOM {
 	@FindBy(id = "doaction")
 	private WebElement applyButton;
 	
-	
-	// Dashboard Page Functions
-	
-		public void clickPostTab() {
-			this.poststab.click();
-		}
-	
-		public void clickCategoriesLink() {
-			this.categorieslink.click();
-		}
-		
-		public void checkboxCheck() {
-			this.secondCheckbox.click();
-			this.thirdCheckbox.isEnabled();
-		}
-		
-		public void bulkActions() {
-			this.drpdwnBulkAction.click();
-			this.deleteValue.click();
-			this.applyButton.click();
-		}
-		
-		
 	
 	
 	public void sendUserName(String userName) {
@@ -125,8 +102,7 @@ public class LoginPOM {
 	public void clickLoginPageLink() {
 		this.loginLink.click();
 	}
-	
-		
+			
 	
 	// Register Page Functions
 	
@@ -145,7 +121,7 @@ public class LoginPOM {
 	}
 	
 	public void sendLastName(String lastName) {
-		this.txtLastName.clear();
+		
 		this.txtLastName.sendKeys(lastName);
 	}
 
@@ -156,10 +132,33 @@ public class LoginPOM {
 	
 	public String ResponseMessage() {
 		
-		String response = registerPageResponseMsg.getText();
-				
+		String response = registerPageResponseMsg.getText();				
 		return response;
 	}
+	
+	
+	// Dashboard Page Functions
+	
+	public void clickPostTab() {
+		this.poststab.click();
+	}
+		
+	public void clickCategoriesLink() {
+		this.categorieslink.click();
+	}
+			
+	public void checkboxCheck() {
+		this.secondCheckbox.click();
+		this.thirdCheckbox.click();
+	}
+			
+	public void bulkActions() {
+		this.drpdwnBulkAction.click();
+		this.deleteValue.click();
+		this.applyButton.click();
+	}
+			
+		
 	
 	
 }
