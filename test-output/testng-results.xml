@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="3" passed="2">
+<testng-results skipped="0" failed="0" ignored="2" total="4" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Sample test Suite" duration-ms="33652" started-at="2020-05-08T07:12:02Z" finished-at="2020-05-08T07:12:36Z">
+  <suite name="Sample test Suite" duration-ms="44986" started-at="2020-05-16T05:13:44Z" finished-at="2020-05-16T05:14:29Z">
     <groups>
     </groups>
-    <test name="Sample test" duration-ms="33652" started-at="2020-05-08T07:12:02Z" finished-at="2020-05-08T07:12:36Z">
+    <test name="Sample test" duration-ms="44986" started-at="2020-05-16T05:13:44Z" finished-at="2020-05-16T05:14:29Z">
       <class name="com.training.sanity.tests.LoginTests">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUpBeforeClass" is-config="true" duration-ms="19943" started-at="2020-05-08T00:12:02Z" finished-at="2020-05-08T00:12:22Z">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUpBeforeClass" is-config="true" duration-ms="19737" started-at="2020-05-15T22:13:44Z" finished-at="2020-05-15T22:14:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="validLoginTest()[pri:2, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="validLoginTest" duration-ms="6133" started-at="2020-05-08T00:12:22Z" finished-at="2020-05-08T00:12:28Z">
+        <test-method status="PASS" signature="validLoginTest()[pri:2, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="validLoginTest" duration-ms="5658" started-at="2020-05-15T22:14:04Z" finished-at="2020-05-15T22:14:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validLoginTest -->
-        <test-method status="PASS" signature="deleteCategories()[pri:3, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="deleteCategories" duration-ms="7545" started-at="2020-05-08T00:12:28Z" depends-on-methods="com.training.sanity.tests.LoginTests.validLoginTest" finished-at="2020-05-08T00:12:36Z">
+        <test-method status="PASS" signature="addNewProperty()[pri:4, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="addNewProperty" duration-ms="19547" started-at="2020-05-15T22:14:10Z" depends-on-methods="com.training.sanity.tests.LoginTests.validLoginTest" finished-at="2020-05-15T22:14:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteCategories -->
+        </test-method> <!-- addNewProperty -->
       </class> <!-- com.training.sanity.tests.LoginTests -->
     </test> <!-- Sample test -->
   </suite> <!-- Sample test Suite -->
