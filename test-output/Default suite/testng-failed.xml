@@ -3,46 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.training.regression.tests.LoginMultipleValuesTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUpBeforeClass"/>
-          <include name="setUp"/>
-          <include name="testMethod1"/>
-        </methods>
-      </class> <!-- com.training.regression.tests.LoginMultipleValuesTest -->
-      <class name="com.training.sanity.tests.LoginTests">
-        <methods>
-          <include name="setUpBeforeClass"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="validLoginTest"/>
-        </methods>
-      </class> <!-- com.training.sanity.tests.LoginTests -->
-      <class name="com.training.regression.tests.LoginXLSTest">
-        <methods>
-          <include name="setUpBeforeClass"/>
-          <include name="setUp"/>
-          <include name="loginDBTest"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.training.regression.tests.LoginXLSTest -->
       <class name="com.training.regression.tests.LoginDBTest">
         <methods>
           <include name="tearDown"/>
-          <include name="loginDBTest"/>
+          <include name="loginDBTest" invocation-numbers="0"/>
           <include name="setUp"/>
           <include name="setUpBeforeClass"/>
         </methods>
       </class> <!-- com.training.regression.tests.LoginDBTest -->
-      <class name="com.training.regression.tests.LoginExcelTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="loginDBTest"/>
-          <include name="setUpBeforeClass"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.training.regression.tests.LoginExcelTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

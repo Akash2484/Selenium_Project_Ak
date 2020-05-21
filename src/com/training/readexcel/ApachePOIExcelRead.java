@@ -17,9 +17,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  *      exists. Test it with main method provided, and the path is hard coded,
  *      participatns are asked to refractor this path in the property file and
  *      access.
+ *      
+ *  <Updation date="05/20/2020" author="Akash Tyagi">  
+ *  Updated logic in ApachePOIExcelRead class logic to use sheet1 or sheet2 of excel workbook based on user need. 
+ *  Also added additional parameter named 'sheetNumber' to getExcelContent function for identification of sheet number. 
  */
 public class ApachePOIExcelRead {
-	public  String [][] getExcelContent(String fileName) {
+	public  String [][] getExcelContent(String fileName, String sheetNumber) {
 		int rowCount =0; 
 		String [][] list1 = null; 
 		
@@ -29,9 +33,17 @@ public class ApachePOIExcelRead {
 
 			// Create Workbook instance holding reference to .xlsx file
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
+			XSSFSheet sheet;
 
-			// Get first/desired sheet from the workbook
-			XSSFSheet sheet = workbook.getSheetAt(0);
+			//NOTE by Akash :- Modified condition to read value from second tab of Workbook for invalid scenario.
+			if(sheetNumber == "2")
+			{
+				sheet = workbook.getSheetAt(1);
+			}
+			else	// Get first/desired sheet from the workbook
+			{
+				sheet = workbook.getSheetAt(0);
+			}
 			
 			int rowTotal = sheet.getLastRowNum();
 
@@ -90,8 +102,8 @@ public class ApachePOIExcelRead {
 
 	public static void main(String[] args) {
 		String fileName = "C:/Users/Naveen/Desktop/Testing.xlsx";
-		
-		for(String [] temp : new ApachePOIExcelRead().getExcelContent(fileName)){
+		String sheetNumber = null;
+		for(String [] temp : new ApachePOIExcelRead().getExcelContent(fileName , sheetNumber)){
 			for(String  tt : temp){
 				System.out.println(tt);
 			}

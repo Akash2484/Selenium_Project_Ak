@@ -39,10 +39,11 @@ public class ELearningDAO {
 			gc.rs1 = gc.ps1.executeQuery(); 
 			
 			while(gc.rs1.next()) {
-			
-				LoginBean temp = new LoginBean(); 
-				temp.setUserName(gc.rs1.getString(1));
-				temp.setPassword(gc.rs1.getString(2));
+				// NOTE by Akash :- Assign DB read values to respective setter functions applicable for your testcase.		
+				LoginBean temp = new LoginBean();
+				temp.setEmailId(gc.rs1.getString(1));
+				temp.setFirstName(gc.rs1.getString(2));
+				temp.setLastName(gc.rs1.getString(3));
 
 				list.add(temp); 
 				

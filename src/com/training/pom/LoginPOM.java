@@ -160,6 +160,9 @@ public class LoginPOM {
 	@FindBy(css = "div.updated.notice.notice-success.is-dismissible")
 	private WebElement verifyPostPublished;
 	
+	@FindBy(xpath="//table[@class='wp-list-table widefat fixed striped posts']/tbody/tr")
+	private List<WebElement> tablePost;
+	
 	
 	//New Launch & Enquiry section WebElements	(RETC_033)
 	
@@ -268,7 +271,9 @@ public class LoginPOM {
 	@FindBy(css="input#createusersub")
 	private WebElement btnAddNewUser; 
 	
-		
+	@FindBy(xpath = "//table[@class='wp-list-table widefat fixed striped users']/tbody/tr")
+	private List<WebElement> tableUser;
+	
 	
 
 	// *******List of Defined Functions ********
@@ -458,7 +463,8 @@ public class LoginPOM {
 
 	public void verifyTableForAddedProperty() {
 		
-	   List<WebElement> table = driver.findElements(By.xpath("//table[@class='wp-list-table widefat fixed striped posts']/tbody/tr"));
+//	   List<WebElement> table = driver.findElements(By.xpath("//table[@class='wp-list-table widefat fixed striped posts']/tbody/tr"));
+	   List<WebElement> table = tablePost; 	
 	   int noofRows = table.size();
 	   int flag = 0;
 	   System.out.println("No of rows " + noofRows);		
@@ -621,7 +627,8 @@ public class LoginPOM {
 		public void verifyTableForNewlyAddedUser(String userNameValue, String userFirstName, String userLastNameValue) throws InterruptedException {
 			String fullName_01 = (userFirstName + " " + userLastNameValue);
 			System.out.println("Trimed FullName is  :- " + fullName_01);
-		    List<WebElement> table = driver.findElements(By.xpath("//table[@class='wp-list-table widefat fixed striped users']/tbody/tr"));
+//		    List<WebElement> table = driver.findElements(By.xpath("//table[@class='wp-list-table widefat fixed striped users']/tbody/tr"));
+			List<WebElement> table = tableUser;
 			   int noofRows = table.size();
 			   int flag = 0;
 			   System.out.println("No of rows " + noofRows);		

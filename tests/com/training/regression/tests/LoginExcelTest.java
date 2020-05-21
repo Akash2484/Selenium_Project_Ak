@@ -19,6 +19,12 @@ import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
+/** Updated 'loginDBTest' to execute TestCase(RETC_061)
+ * <Creation date="05/18/2020" author="Akash Tyagi">
+ * @author AKASHTYAGI
+ *
+ */
+
 public class LoginExcelTest {
 	private WebDriver driver;
 	private String baseUrl;
@@ -47,13 +53,59 @@ public class LoginExcelTest {
 	public void tearDown() throws Exception {
 		driver.quit();
 	}
+	
+	
+	/**TestCase_09	(RETC_061):- To verify whether application allows multiple users to get registered upon entering valid credentials
+	 * <Creation date="05/18/2020" author="Akash Tyagi">
+	 * @param emailId
+	 * @param firstName
+	 * @param lastName
+	 * NOTE :- Calling generic function named 'genericRegisterFunciton' to perform 'Registration'.
+	 */	
+	
+	@Test(priority =1, dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)	
+	public void loginExcelValidDataTest(String emailId, String firstName, String lastName) {
 
-	@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)
-	public void loginDBTest(String userName, String password) {
-		loginPOM.sendUserName(userName);
-		loginPOM.sendPassword(password);
-		loginPOM.clickLoginBtn();
-		screenShot.captureScreenShot(userName);
+		genericRegisterFunciton(emailId, firstName, lastName);
+		
+	}
+	
+
+	/**TestCase_11	(RETC_063):- TO verify whether application displays error message upon entering invalid details during registration
+	 * <Creation date="05/20/2020" author="Akash Tyagi">
+	 * @param emailId
+	 * @param firstName
+	 * @param lastName
+	 * NOTE :- Calling generic function named 'genericRegisterFunciton' to perform 'Registration'.
+	 */
+	
+	@Test(priority =2, dataProvider = "excel2-inputs", dataProviderClass = LoginDataProviders.class)	
+	public void loginExcelInvalidDataTest(String emailId, String firstName, String lastName) {
+			
+		genericRegisterFunciton(emailId, firstName, lastName);
+
+	}
+	
+	
+	/**Generic function to perform new user registration for valid/invalid scenario's.
+	 * <Creation date="05/20/2020" author="Akash Tyagi">
+	 * @param emailId
+	 * @param firstName
+	 * @param lastName
+	 * NOTE :- This is a generic function getting called from 'loginExcelValidDataTest' and 'loginExcelInvalidDataTest' Tests.
+	 */
+	public void genericRegisterFunciton(String emailId, String firstName, String lastName) {
+		
+		loginPOM.clickLoginPageLink();
+		loginPOM.clickRegisterTab();
+		loginPOM.sendEmailId(emailId);
+		loginPOM.sendFirstName(firstName);
+		loginPOM.sendLastName(lastName);
+		screenShot.captureScreenShot("Data_Before_Registration_for" +firstName);
+		loginPOM.clickRegisterButton();
+		screenShot.captureScreenShot(firstName);
+		System.out.println("Response Message after Register button click :- " );
+		System.out.println(loginPOM.ResponseMessage());
 
 	}
 

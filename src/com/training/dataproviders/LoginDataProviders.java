@@ -19,9 +19,11 @@ public class LoginDataProviders {
 		Object[][] result = new Object[list.size()][]; 
 		int count = 0; 
 		for(LoginBean temp : list){
-			Object[]  obj = new Object[2]; 
-			obj[0] = temp.getUserName(); 
-			obj[1] = temp.getPassword(); 
+			//	NOTE by Akash :- Updated the ArayList size i.e [3] and assigned getter values to ArrayList indexes in sequential order.			
+			Object[]  obj = new Object[3];
+			obj[0] = temp.getEmailId();
+			obj[1] = temp.getFirstName();
+			obj[2] = temp.getLastName();
 			
 			result[count ++] = obj; 
 		}
@@ -32,9 +34,23 @@ public class LoginDataProviders {
 	
 	@DataProvider(name = "excel-inputs")
 	public Object[][] getExcelData(){
-		String fileName ="C:/Users/Naveen/Desktop/Testing.xlsx"; 
-		return new ApachePOIExcelRead().getExcelContent(fileName); 
+		// NOTE by Akash:- Path of xlsx file located in local machine, to read test-case input values from excel. 
+		String fileName ="C:/Users/AKASHTYAGI/Desktop/Selenium_Learning-Manipal/Selenium_Project/Test_Registration.xlsx";
+	    String sheetNumber = "1";
+
+		return new ApachePOIExcelRead().getExcelContent(fileName, sheetNumber); 
 	}
+	
+
+	@DataProvider(name = "excel2-inputs")
+	public Object[][] getExcelSecondTabData(){
+		// NOTE by Akash:- Path of xlsx file located in local machine, to read test-case input values from excel. 
+		String fileName ="C:/Users/AKASHTYAGI/Desktop/Selenium_Learning-Manipal/Selenium_Project/Test_Registration.xlsx"; 
+		String sheetNumber = "2";
+		
+		return new ApachePOIExcelRead().getExcelContent(fileName, sheetNumber); 
+	}
+	
 	
 	@DataProvider(name = "xls-inputs")
 	public Object[][] getXLSData(){

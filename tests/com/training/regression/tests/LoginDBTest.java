@@ -20,6 +20,12 @@ import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
+ /** Updated 'loginDBTest' to execute TestCase(RETC_062)
+ * <Creation date="05/19/2020" author="Akash Tyagi">
+ * @author AKASHTYAGI
+ *
+ */
+ 
 public class LoginDBTest {
 	private WebDriver driver;
 	private String baseUrl;
@@ -54,17 +60,33 @@ public class LoginDBTest {
 	}
 
 
+	
+	/**
+	 * TestCase_10	(RETC_062):- To verify whether details entered by user during registration get displayed in database
+	 * <Creation date="05/19/2020" author="Akash Tyagi">
+	 * @param emailId
+	 * @param firstName
+	 * @param lastName
+	 */
+	
 	@Test(dataProvider = "db-inputs", dataProviderClass = LoginDataProviders.class)
-	public void loginDBTest(String userName, String password) {
-		// for demonstration 
-//		genericMethods.getElement("login", "id"); 
-				
-		loginPOM.sendUserName(userName);
+	public void loginDBTest(String emailId, String firstName, String lastName) {	
+
+		System.out.println("Email Id value from DB is :- " +emailId);
+		System.out.println("First Name value from DB is :- " +firstName);
+		System.out.println("Last Name value from DB is :- " +lastName);
 		
-		loginPOM.sendPassword(password);
-		loginPOM.clickLoginBtn();
+		loginPOM.clickLoginPageLink();
+		loginPOM.clickRegisterTab();
+		loginPOM.sendEmailId(emailId);
+		loginPOM.sendFirstName(firstName);
+		loginPOM.sendLastName(lastName);
+		screenShot.captureScreenShot("Data_Before_Registration_for" +firstName);
+		loginPOM.clickRegisterButton();
+		screenShot.captureScreenShot(firstName);
+		System.out.println("Response Message after Register button click :- " );
+		System.out.println(loginPOM.ResponseMessage());
 		
-		screenShot.captureScreenShot(userName);
 
 	}
 
